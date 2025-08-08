@@ -60,6 +60,13 @@
       opacity:0;
     }
 
+    .box h3{margin:0 0 .5rem 0; font-size:1.1rem}
+    .box p{margin:0 0 .75rem 0}
+
+    .btn-row{display:flex; gap:.5rem}
+    .btn{appearance:none; border:1px solid rgba(255,255,255,.18); background:rgba(0,0,0,.25); color:var(--text); padding:.5rem .8rem; border-radius:.6rem; font-weight:600; cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+
     .reveal{opacity:0; transform:translateY(16px); filter:blur(2px); transition:opacity .9s ease, transform .9s ease, filter .8s ease;}
     .reveal.in-view{opacity:1; transform:none; filter:none;}
 
@@ -68,6 +75,19 @@
 
     @keyframes pop{ from{ transform:translateY(18px) scale(.98); } to{ transform:none; } }
     @keyframes shimmer{ from{ transform:translateX(-120%);} to{ transform:translateX(120%);} }
+
+    .popup{position:fixed; inset:0; display:none; place-items:center;}
+    .popup.active{display:grid}
+    .popup .panel{
+      width:600px; height:400px;
+      transform:rotate(90deg);
+      box-shadow:0 24px 60px rgba(0,0,0,.6);
+      border:2px solid transparent;
+      background:
+        linear-gradient(0deg,#0a0a0a,#2a2a2a) padding-box,
+        linear-gradient(0deg,#000000,#2b2b2b) border-box;
+      border-radius:12px;
+    }
   </style>
 </head>
 <body>
@@ -83,9 +103,20 @@
     </div>
 
     <div class="two-boxes">
-      <div class="box reveal" style="transition-delay:.05s"></div>
+      <div class="box reveal" style="transition-delay:.05s">
+        <h3>box 1</h3>
+        <p>test</p>
+        <div class="btn-row">
+          <button class="btn" id="btn-instructions">Instructions</button>
+          <button class="btn">Download</button>
+        </div>
+      </div>
       <div class="box reveal" style="transition-delay:.12s"></div>
     </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="panel"></div>
   </div>
 
   <script>
@@ -99,6 +130,12 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const popup = document.getElementById('popup');
+    const btn = document.getElementById('btn-instructions');
+    btn.addEventListener('click', () => {
+      popup.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
