@@ -1,2 +1,95 @@
-<title>Crazim | Soon</title>
-<b>Coming soon! If you are here for the GD SDK, that will be released shortly.</b>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crazim</title>
+  <style>
+    :root{
+      --bg-1:#0b1f16;
+      --bg-2:#141618;
+      --text:#e6f2ea;
+      --accent:#179e64;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:sans-serif;
+      color:var(--text);
+      background:linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      background-attachment: fixed;
+    }
+
+    .container{width:min(900px, 92vw); margin:auto; padding:2rem 1rem; display:flex; flex-direction:column; align-items:center;}
+
+    .logo{font-weight:800; font-size:clamp(48px, 8vw, 124px); display:flex; gap:0.04em; perspective:800px; user-select:none; margin-top:1.5rem;}
+    .logo span{display:inline-block; transition:transform .28s ease, text-shadow .3s ease;}
+    .logo span:hover{transform:translateY(-10%) scale(1.1) rotateX(6deg); text-shadow:0 10px 26px rgba(23,158,100,.35);}
+
+    .frame{border-radius:24px; overflow:hidden; max-width:560px; width:100%;}
+    .image-box{aspect-ratio:1/1; width:100%; overflow:hidden; border-radius:18px; background:#0b0f0d; position:relative;}
+    .image-box img{width:100%; height:100%; object-fit:cover;}
+
+    .two-boxes{width:100%; margin-top:2rem; display:grid; grid-template-columns: 1fr 1fr; gap:1rem;}
+    @media (max-width:720px){ .two-boxes{ grid-template-columns:1fr; } }
+
+    .box{
+      position:relative;
+      min-height:160px;
+      border-radius:16px;
+      background:linear-gradient(145deg, rgba(255,255,255,.03), rgba(0,0,0,.28));
+      border:1px solid rgba(255,255,255,.06);
+      overflow:hidden;
+      padding:1rem;
+    }
+    .box::after{
+      content:"";
+      position:absolute; inset:0; transform:translateX(-120%);
+      background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 50%, transparent 70%);
+      pointer-events:none;
+      opacity:0;
+    }
+
+    .reveal{opacity:0; transform:translateY(16px); filter:blur(2px); transition:opacity .9s ease, transform .9s ease, filter .8s ease;}
+    .reveal.in-view{opacity:1; transform:none; filter:none;}
+
+    .box.in-view{ animation: pop .6s cubic-bezier(.2,.7,.2,1) both; }
+    .box.in-view::after{ opacity:1; animation: shimmer 900ms ease 100ms 1 both; }
+
+    @keyframes pop{ from{ transform:translateY(18px) scale(.98); } to{ transform:none; } }
+    @keyframes shimmer{ from{ transform:translateX(-120%);} to{ transform:translateX(120%);} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="frame reveal">
+      <div class="image-box">
+        <img src="/crazim.png" alt="us!" />
+      </div>
+    </div>
+
+    <div class="logo">
+      <span>C</span><span>r</span><span>a</span><span>z</span><span>i</span><span>m</span>
+    </div>
+
+    <div class="two-boxes">
+      <div class="box reveal" style="transition-delay:.05s"></div>
+      <div class="box reveal" style="transition-delay:.12s"></div>
+    </div>
+  </div>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
