@@ -63,6 +63,8 @@
     .popup em{display:block; text-align:center; font-size:1.3rem; margin-top:0.8rem; font-weight:bold; background:var(--highlight); padding:0.4rem 0.6rem; border-radius:6px; color:#fff;}
     .popup p{margin-top:1.5rem; text-align:center; font-size:1.2rem; line-height:1.8;}
     .popup i{display:block; margin-top:1.5rem; text-align:center; font-size:1.1rem; font-style:italic; font-weight:bold; background:var(--accent); padding:0.4rem 0.6rem; border-radius:6px;}
+    .popup .img-stack{display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:16px;}
+    .popup .img-stack img{max-width:80%; height:auto; border-radius:12px; -webkit-user-drag:none; user-drag:none;}
     .popup .ok-btn{align-self:flex-end; padding:0.7rem 1.4rem; background:rgba(0,0,0,.25); color:var(--text); border:1px solid rgba(255,255,255,.18); border-radius:0.5rem; cursor:pointer; font-size:1rem;}
 
     @keyframes fadeIn{from{opacity:0} to{opacity:1}}
@@ -73,14 +75,14 @@
   <div class="container">
     <div class="frame reveal">
       <div class="image-box">
-        <img src="/crazim.png" alt="us!" />
+        <img src="/crazim.png" alt="Square showcase" />
       </div>
     </div>
     <div class="logo"><span>C</span><span>r</span><span>a</span><span>z</span><span>i</span><span>m</span></div>
     <div class="two-boxes">
       <div class="box reveal" style="transition-delay:.05s">
-        <h3>GD bypassed SDK</h3>
-        <p>Good for getting games on your UBG/site!</p>
+        <h3>box 1</h3>
+        <p>test</p>
         <div class="btn-row">
           <button class="btn" id="btn-instructions">Instructions</button>
           <button class="btn">Download</button>
@@ -109,6 +111,11 @@
         <i>
           Just so you know, <span class="highlight">WebGL games</span> are the easiest to borrow, because this SDK is designated for them, there are images below that show what builds are "good", and what builds are "bad".
         </i>
+        <div class="img-stack">
+          <img src="/webgl.png" alt="WebGL - Good build" draggable="false">
+          <img src="/javascript.png" alt="JS - Hard build" draggable="false">
+          <img src="/construct.png" alt="Construct 2, 3 - Bad build" draggable="false">
+        </div>
       </div>
       <button class="ok-btn" id="ok-btn">OK</button>
     </div>
