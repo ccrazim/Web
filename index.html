@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crazim</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crazim – Dark Gradient Landing Page</title>
+<style>
+:root{
       --bg-1:#0b1f16;
       --bg-2:#0b1f16;
       --text:#e6f2ea;
@@ -30,14 +29,15 @@
     .logo span{display:inline-block; transition:transform .28s ease, text-shadow .3s ease;}
     .logo span:hover{transform:translateY(-10%) scale(1.1) rotateX(6deg); text-shadow:0 10px 26px rgba(13,51,31,.35);}
 
-    .frame{border-radius:24px; overflow:hidden; max-width:280px; width:100%; background-color:var(--image-bg);}
+    .frame{border-radius:24px; overflow:hidden; max-width:280px; width:100%; background-color:var(--image-bg); margin:2rem auto; height:auto; display:flex; justify-content:center; align-items:center;}
     .image-box{aspect-ratio:1/1; width:100%; overflow:hidden; border-radius:18px; background:var(--image-bg); position:relative;}
-    .image-box img{width:100%; height:100%; object-fit:cover;}
+    .image-box img{width:100%; height:100%; object-fit:cover; border-radius:12px;}
 
     .two-boxes{width:100%; margin-top:2rem; display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;}
     @media (max-width:720px){ .two-boxes{ grid-template-columns:1fr; } }
 
-    .box{position:relative; min-height:160px; border-radius:16px; background:linear-gradient(145deg, rgba(255,255,255,.03), rgba(0,0,0,.28)); border:1px solid rgba(255,255,255,.06); overflow:hidden; padding:1.5rem; font-size:1.2rem;}
+    .box{position:relative; min-height:160px; border-radius:16px; background:linear-gradient(145deg, rgba(255,255,255,.03), rgba(0,0,0,.28)); border:1px solid rgba(255,255,255,.06); overflow:hidden; padding:1.5rem; font-size:1.2rem; opacity:0; transform:translateY(30px); transition:opacity .6s ease, transform .6s ease;}
+    .box.visible{opacity:1; transform:translateY(0);}
     .box::after{content:""; position:absolute; inset:0; transform:translateX(-120%); background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 50%, transparent 70%); pointer-events:none; opacity:0;}
 
     .box h3{margin:0 0 .75rem 0; font-size:1.4rem}
@@ -69,81 +69,71 @@
 
     @keyframes fadeIn{from{opacity:0} to{opacity:1}}
     @keyframes popUp{from{transform:scale(0.6);} to{transform:scale(1);}}
-  </style>
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="frame reveal">
-      <div class="image-box">
-        <img src="/crazim.png" alt="Square showcase" />
+  <div class="frame"><img src="/crazim.png" alt="Crazim Logo"></div>
+  <h1 class="logo" style="text-align:center;">Crazim</h1>
+  <div class="two-boxes">
+    <div class="box">
+      <h2>box 1</h2>
+      <p>test</p>
+      <div class="btn-row">
+        <button class="btn" id="instructionsBtn">Instructions</button>
+        <button class="btn">Download</button>
       </div>
     </div>
-    <div class="logo"><span>C</span><span>r</span><span>a</span><span>z</span><span>i</span><span>m</span></div>
-    <div class="two-boxes">
-      <div class="box reveal" style="transition-delay:.05s">
-        <h3>box 1</h3>
-        <p>test</p>
-        <div class="btn-row">
-          <button class="btn" id="btn-instructions">Instructions</button>
-          <button class="btn">Download</button>
-        </div>
-      </div>
-      <div class="box reveal" style="transition-delay:.12s"></div>
-    </div>
+    <div class="box">Box 2</div>
   </div>
+
   <div class="popup" id="popup">
-    <div class="panel" id="popup-panel">
-      <div>
-        <h1>Before you continue</h1>
-        <em>Just a brief reminder...</em>
-        <p>
-          Our <span class="highlight">bypassed GameDistribution SDK</span> lets you borrow games from their website, and import their games into yours! There are <span class="highlight">thousands of games</span> to choose from to add to your site too!
-        </p>
-        <p>
-          You <span class="highlight">cannot claim</span> that you/your group created this SDK, and you may not <span class="highlight">tamper with the logs</span> (in the console) that our SDK JavaScript prints out.
-        </p>
-        <p>
-          If you find any <span class="highlight">bugs or errors</span>, please create an "Issue" on our GitHub repository.
-        </p>
-        <p>
-          To request more <span class="highlight">modified SDK's</span> from game sites, join our Discord server.
-        </p>
-        <i>
-          Just so you know, <span class="highlight">WebGL games</span> are the easiest to borrow, because this SDK is designated for them, there are images below that show what builds are "good", and what builds are "bad".
-        </i>
-        <div class="img-stack">
-          <img src="/webgl.png" alt="WebGL - Good build" draggable="false">
-          <img src="/javascript.png" alt="JS - Hard build" draggable="false">
-          <img src="/construct.png" alt="Construct 2, 3 - Bad build" draggable="false">
-        </div>
+    <div class="panel" id="panel">
+      <h1>Before you continue</h1>
+      <em>Just a brief reminder...</em>
+      <p>Our <span class="highlight">bypassed GameDistribution SDK</span> lets you borrow games from their website, and import their games into yours! There are <span class="highlight">thousands of games</span> to choose from to add to your site too!</p>
+      <p>You cannot claim that you/your group created this SDK, and you may not tamper with the <span class="highlight">logs</span> (in the console) that our SDK JavaScript prints out.</p>
+      <p>If you find any bugs or errors, please create an <span class="highlight">"Issue"</span> on our GitHub repository.</p>
+      <p>To request more modified SDK's from game sites, join our <span class="highlight">Discord server</span>.</p>
+      <i>Just so you know, WebGL games are the easiest to borrow, because this SDK is designated for them, there are images below that show what builds are "good", and what builds are "bad"</i>
+      <div class="img-stack">
+        <img src="/webgl.png" draggable="false">
+        <img src="/javascript.png" draggable="false">
+        <img src="/construct.png" draggable="false">
       </div>
-      <button class="ok-btn" id="ok-btn">OK</button>
+      <button class="ok-btn" id="okBtn">OK</button>
     </div>
   </div>
-  <script>
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
 
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+<script>
+  const popup = document.getElementById('popup');
+  const panel = document.getElementById('panel');
+  const instructionsBtn = document.getElementById('instructionsBtn');
+  const okBtn = document.getElementById('okBtn');
 
-    const popup = document.getElementById('popup');
-    const btn = document.getElementById('btn-instructions');
-    const okBtn = document.getElementById('ok-btn');
-    const panel = document.getElementById('popup-panel');
+  instructionsBtn.addEventListener('click', () => {
+    popup.classList.add('active');
+  });
 
-    btn.addEventListener('click', () => {
-      popup.classList.toggle('active');
+  okBtn.addEventListener('click', () => {
+    panel.innerHTML = `
+      <div style="text-align:center; padding:2rem;">
+        <h1 style="font-size:2rem; font-weight:bold;">Reminder:</h1>
+        <p style="font-size:1.2rem; margin-top:1rem;">You may have to decompress <span class="highlight">Brotli</span> or <span class="highlight">Gzip</span> frameworks (If using WebGL) to change the SDK location...</p>
+        <p style="font-size:1.1rem; margin-top:2rem;">Remember to check for future updates!</p>
+        <a href="#" style="display:inline-block; margin-top:2rem; padding:1rem 2rem; background:var(--highlight); color:#fff; text-decoration:none; border-radius:8px; font-size:1.2rem;">Download</a>
+      </div>`;
+  });
+
+  const boxes = document.querySelectorAll('.box');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
+  }, { threshold: 0.2 });
 
-    okBtn.addEventListener('click', () => {
-      panel.innerHTML = "";
-    });
-  </script>
+  boxes.forEach(box => observer.observe(box));
+</script>
 </body>
 </html>
