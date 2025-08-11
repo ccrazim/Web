@@ -3,137 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crazim – Dark Gradient Landing Page</title>
+<title>Crazim</title>
 <style>
 :root{
-      --bg-1:#0b1f16;
-      --bg-2:#0b1f16;
-      --text:#e6f2ea;
-      --accent:#0d331f;
-      --highlight:#b87c3a;
-      --image-bg:#b87c3a;
-    }
-    *{box-sizing:border-box}
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:'Impact','Poppins',sans-serif;
-      color:var(--text);
-      background:linear-gradient(135deg, var(--bg-1), var(--bg-2));
-      background-attachment: fixed;
-    }
-    .highlight { background-color: var(--highlight); padding: 0 .3em; border-radius: 4px; font-weight: bold; color: #fff; }
+  --bg-1:#0b1f16;
+  --bg-2:#0b1f16;
+  --text:#e6f2ea;
+  --accent:#0d331f;
+  --highlight:#b87c3a;
+  --image-bg:#b87c3a;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:'Impact','Poppins',sans-serif;
+  color:var(--text);
+  background:linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  background-attachment: fixed;
+}
+.highlight { background-color: var(--highlight); padding: 0 .3em; border-radius: 4px; font-weight: bold; color: #fff; }
 
-    .container{width:min(1000px, 95vw); margin:auto; padding:2rem 1rem; display:flex; flex-direction:column; align-items:center;}
-    .logo{font-weight:800; font-size:clamp(28px, 4vw, 56px); display:flex; gap:0.04em; perspective:800px; user-select:none; margin-top:1rem;}
-    .logo span{display:inline-block; transition:transform .28s ease, text-shadow .3s ease;}
-    .logo span:hover{transform:translateY(-10%) scale(1.1) rotateX(6deg); text-shadow:0 10px 26px rgba(13,51,31,.35);}
+.container{width:min(1000px, 95vw); margin:auto; padding:2rem 1rem; display:flex; flex-direction:column; align-items:center;}
+.logo{font-weight:800; font-size:clamp(28px, 4vw, 56px); display:flex; gap:0.04em; perspective:800px; user-select:none; margin-top:1rem;}
+.logo span{display:inline-block; transition:transform .28s ease, text-shadow .3s ease;}
+.logo span:hover{transform:translateY(-10%) scale(1.1) rotateX(6deg); text-shadow:0 10px 26px rgba(13,51,31,.35);}
 
-    .frame{border-radius:24px; overflow:hidden; max-width:280px; width:100%; background-color:var(--image-bg); margin:2rem auto; height:auto; display:flex; justify-content:center; align-items:center;}
-    .image-box{aspect-ratio:1/1; width:100%; overflow:hidden; border-radius:18px; background:var(--image-bg); position:relative;}
-    .image-box img{width:100%; height:100%; object-fit:cover; border-radius:12px;}
+.frame{border-radius:24px; overflow:hidden; max-width:280px; width:100%; background-color:var(--image-bg);}
+.frame img{width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; display:block; border-radius:12px;}
 
-    .two-boxes{width:100%; margin-top:2rem; display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem;}
-    @media (max-width:720px){ .two-boxes{ grid-template-columns:1fr; } }
+.two-boxes{width:100%; margin-top:2rem; display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; justify-items:center;}
+@media (max-width:720px){ .two-boxes{ grid-template-columns:1fr; } }
 
-    .box{position:relative; min-height:160px; border-radius:16px; background:linear-gradient(145deg, rgba(255,255,255,.03), rgba(0,0,0,.28)); border:1px solid rgba(255,255,255,.06); overflow:hidden; padding:1.5rem; font-size:1.2rem; opacity:0; transform:translateY(30px); transition:opacity .6s ease, transform .6s ease;}
-    .box.visible{opacity:1; transform:translateY(0);}
-    .box::after{content:""; position:absolute; inset:0; transform:translateX(-120%); background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 50%, transparent 70%); pointer-events:none; opacity:0;}
+.box{position:relative; min-height:160px; border-radius:16px; background:linear-gradient(145deg, rgba(255,255,255,.03), rgba(0,0,0,.28)); border:1px solid rgba(255,255,255,.06); overflow:hidden; padding:1.5rem; font-size:1.2rem;}
+.box::after{content:""; position:absolute; inset:0; transform:translateX(-120%); background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.08) 50%, transparent 70%); pointer-events:none; opacity:0;}
 
-    .box h3{margin:0 0 .75rem 0; font-size:1.4rem}
-    .box p{margin:0 0 1rem 0; font-size:1.1rem;}
+.box h3{margin:0 0 .75rem 0; font-size:1.4rem}
+.box p{margin:0 0 1rem 0; font-size:1.1rem;}
 
-    .btn-row{display:flex; gap:.75rem}
-    .btn{appearance:none; border:1px solid rgba(255,255,255,.18); background:rgba(0,0,0,.25); color:var(--text); padding:.7rem 1rem; border-radius:.6rem; font-weight:600; cursor:pointer; font-size:1rem;}
-    .btn:active{transform:translateY(1px)}
+.btn-row{display:flex; gap:.75rem}
+.btn{appearance:none; border:1px solid rgba(255,255,255,.18); background:rgba(0,0,0,.25); color:var(--text); padding:.7rem 1rem; border-radius:.6rem; font-weight:600; cursor:pointer; font-size:1rem;}
+.btn:active{transform:translateY(1px)}
 
-    .reveal{opacity:0; transform:translateY(16px); filter:blur(2px); transition:opacity .9s ease, transform .9s ease, filter .8s ease;}
-    .reveal.in-view{opacity:1; transform:none; filter:none;}
+.reveal{opacity:0; transform:translateY(16px); filter:blur(2px); transition:opacity .9s ease, transform .9s ease, filter .8s ease;}
+.reveal.in-view{opacity:1; transform:none; filter:none;}
 
-    .box.in-view{ animation: pop .6s cubic-bezier(.2,.7,.2,1) both; }
-    .box.in-view::after{ opacity:1; animation: shimmer 900ms ease 100ms 1 both; }
+.box.in-view{ animation: pop .6s cubic-bezier(.2,.7,.2,1) both; }
+.box.in-view::after{ opacity:1; animation: shimmer 900ms ease 100ms 1 both; }
 
-    @keyframes pop{ from{ transform:translateY(18px) scale(.98); } to{ transform:none; } }
-    @keyframes shimmer{ from{ transform:translateX(-120%);} to{ transform:translateX(120%);} }
+@keyframes pop{ from{ transform:translateY(18px) scale(.98); } to{ transform:none; } }
+@keyframes shimmer{ from{ transform:translateX(-120%);} to{ transform:translateX(120%);} }
 
-    .popup{position:fixed; inset:0; display:none; place-items:center; animation:fadeIn .3s ease forwards;}
-    .popup.active{display:grid;}
-    .popup .panel{width:700px; height:500px; box-shadow:0 24px 60px rgba(0,0,0,.6); border:2px solid transparent; background:linear-gradient(0deg,#0a0a0a,#2a2a2a) padding-box, linear-gradient(0deg,#000000,#2b2b2b) border-box; border-radius:12px; animation:popUp .35s ease forwards; display:flex; flex-direction:column; justify-content:space-between; padding:2rem; overflow:auto; font-size:1.2rem;}
-    .popup h1{margin:0; font-size:2.2rem; text-align:center;}
-    .popup em{display:block; text-align:center; font-size:1.3rem; margin-top:0.8rem; font-weight:bold; background:var(--highlight); padding:0.4rem 0.6rem; border-radius:6px; color:#fff;}
-    .popup p{margin-top:1.5rem; text-align:center; font-size:1.2rem; line-height:1.8;}
-    .popup i{display:block; margin-top:1.5rem; text-align:center; font-size:1.1rem; font-style:italic; font-weight:bold; background:var(--accent); padding:0.4rem 0.6rem; border-radius:6px;}
-    .popup .img-stack{display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:16px;}
-    .popup .img-stack img{max-width:80%; height:auto; border-radius:12px; -webkit-user-drag:none; user-drag:none;}
-    .popup .ok-btn{align-self:flex-end; padding:0.7rem 1.4rem; background:rgba(0,0,0,.25); color:var(--text); border:1px solid rgba(255,255,255,.18); border-radius:0.5rem; cursor:pointer; font-size:1rem;}
+.popup{position:fixed; inset:0; display:none; place-items:center; animation:fadeIn .3s ease forwards;}
+.popup.active{display:grid;}
+.popup .panel{width:700px; height:500px; box-shadow:0 24px 60px rgba(0,0,0,.6); border:2px solid transparent; background:linear-gradient(0deg,#0a0a0a,#2a2a2a) padding-box, linear-gradient(0deg,#000000,#2b2b2b) border-box; border-radius:12px; animation:popUp .35s ease forwards; display:flex; flex-direction:column; justify-content:space-between; padding:2rem; overflow:auto; font-size:1.2rem;}
+.popup h1{margin:0; font-size:2.2rem; text-align:center;}
+.popup em{display:block; text-align:center; font-size:1.3rem; margin-top:0.8rem; font-weight:bold; background:var(--highlight); padding:0.4rem 0.6rem; border-radius:6px; color:#fff;}
+.popup p{margin-top:1.5rem; text-align:center; font-size:1.2rem; line-height:1.8;}
+.popup i{display:block; margin-top:1.5rem; text-align:center; font-size:1.1rem; font-style:italic; font-weight:bold; background:var(--accent); padding:0.4rem 0.6rem; border-radius:6px;}
+.popup .img-stack{display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:16px;}
+.popup .img-stack img{max-width:80%; height:auto; border-radius:12px; -webkit-user-drag:none; user-drag:none;}
+.popup .ok-btn{align-self:flex-end; padding:0.7rem 1.4rem; background:rgba(0,0,0,.25); color:var(--text); border:1px solid rgba(255,255,255,.18); border-radius:0.5rem; cursor:pointer; font-size:1rem;}
 
-    @keyframes fadeIn{from{opacity:0} to{opacity:1}}
-    @keyframes popUp{from{transform:scale(0.6);} to{transform:scale(1);}}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+@keyframes popUp{from{transform:scale(0.6);} to{transform:scale(1);}}
 </style>
 </head>
 <body>
-  <div class="frame"><img src="/crazim.png" alt="Crazim Logo"></div>
-  <h1 class="logo" style="text-align:center;">Crazim</h1>
-  <div class="two-boxes">
-    <div class="box">
-      <h2>box 1</h2>
-      <p>test</p>
-      <div class="btn-row">
-        <button class="btn" id="instructionsBtn">Instructions</button>
-        <button class="btn">Download</button>
+  <div style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <div class="frame"><img src="/crazim.png" alt="Crazim Logo"></div>
+    <h1 class="logo" style="text-align:center;">Crazim</h1>
+    <div class="two-boxes" style="max-width:800px;">
+      <div class="box">
+        <h2>box 1</h2>
+        <p>test</p>
+        <div class="btn-row">
+          <button class="btn" id="instructionsBtn">Instructions</button>
+          <button class="btn">Download</button>
+        </div>
       </div>
+      <div class="box">Box 2</div>
     </div>
-    <div class="box">Box 2</div>
   </div>
 
   <div class="popup" id="popup">
-    <div class="panel" id="panel">
+    <div class="panel" id="popupContent">
       <h1>Before you continue</h1>
       <em>Just a brief reminder...</em>
-      <p>Our <span class="highlight">bypassed GameDistribution SDK</span> lets you borrow games from their website, and import their games into yours! There are <span class="highlight">thousands of games</span> to choose from to add to your site too!</p>
-      <p>You cannot claim that you/your group created this SDK, and you may not tamper with the <span class="highlight">logs</span> (in the console) that our SDK JavaScript prints out.</p>
-      <p>If you find any bugs or errors, please create an <span class="highlight">"Issue"</span> on our GitHub repository.</p>
-      <p>To request more modified SDK's from game sites, join our <span class="highlight">Discord server</span>.</p>
+      <p>Our bypassed GameDistribution SDK lets you borrow games from their website, and import their games into yours! There are thousands of games to choose from to add to your site too!<br><br>
+      You cannot claim that you/your group created this SDK, and you may not tamper with the logs (in the console) that our SDK JavaScript prints out.<br><br>
+      If you find any bugs or errors, please create an "Issue" on our GitHub repository.<br><br>
+      To request more modified SDK's from game sites, join our Discord server.</p>
       <i>Just so you know, WebGL games are the easiest to borrow, because this SDK is designated for them, there are images below that show what builds are "good", and what builds are "bad"</i>
       <div class="img-stack">
-        <img src="/webgl.png" draggable="false">
-        <img src="/javascript.png" draggable="false">
-        <img src="/construct.png" draggable="false">
+        <img src="/webgl.png" alt="WebGL">
+        <img src="/javascript.png" alt="JavaScript">
+        <img src="/construct.png" alt="Construct">
       </div>
       <button class="ok-btn" id="okBtn">OK</button>
     </div>
   </div>
 
 <script>
-  const popup = document.getElementById('popup');
-  const panel = document.getElementById('panel');
-  const instructionsBtn = document.getElementById('instructionsBtn');
-  const okBtn = document.getElementById('okBtn');
-
-  instructionsBtn.addEventListener('click', () => {
-    popup.classList.add('active');
+const boxes = document.querySelectorAll('.box');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+    }
   });
+});
+boxes.forEach(box => observer.observe(box));
 
-  okBtn.addEventListener('click', () => {
-    panel.innerHTML = `
-      <div style="text-align:center; padding:2rem;">
-        <h1 style="font-size:2rem; font-weight:bold;">Reminder:</h1>
-        <p style="font-size:1.2rem; margin-top:1rem;">You may have to decompress <span class="highlight">Brotli</span> or <span class="highlight">Gzip</span> frameworks (If using WebGL) to change the SDK location...</p>
-        <p style="font-size:1.1rem; margin-top:2rem;">Remember to check for future updates!</p>
-        <a href="#" style="display:inline-block; margin-top:2rem; padding:1rem 2rem; background:var(--highlight); color:#fff; text-decoration:none; border-radius:8px; font-size:1.2rem;">Download</a>
-      </div>`;
-  });
+document.getElementById('instructionsBtn').addEventListener('click', () => {
+  document.getElementById('popup').classList.add('active');
+});
 
-  const boxes = document.querySelectorAll('.box');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  boxes.forEach(box => observer.observe(box));
+document.getElementById('okBtn').addEventListener('click', () => {
+  const popupContent = document.getElementById('popupContent');
+  popupContent.innerHTML = `
+    <h1>Reminder:</h1>
+    <p>You may have to decompress Brotli or Gzip frameworks (If using WebGL) to change the SDK location...</p>
+    <p style="margin-top:1rem;">Remember to check for future updates!</p>
+    <button class="btn" style="margin-top:2rem; font-size:1.2rem;">Download</button>
+  `;
+});
 </script>
 </body>
 </html>
