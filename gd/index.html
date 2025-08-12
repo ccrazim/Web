@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Downloaded!</title>
+</head>
+<body>
+<script>
+var link = document.createElement('a');
+link.href = 'gd.crazim.js';
+link.download = 'gd.crazim.js';
+
+document.body.appendChild(link);
+
+link.click();
+
+document.body.removeChild(link);
+</script>
+</body>
+</html>
