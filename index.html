@@ -75,14 +75,14 @@ html,body{
     <h1 class="logo" style="text-align:center;">Crazim</h1>
     <div class="two-boxes" style="max-width:800px;">
       <div class="box">
-        <h2>box 1</h2>
-        <p>test</p>
+        <h2>GameDistribution Modified SDK</h2>
+        <p>Fact: The first GD SDK ever in public (and opensource)</p>
         <div class="btn-row">
           <button class="btn" id="instructionsBtn">Instructions</button>
-          <button class="btn">Download</button>
+          <button class="btn" id="sosigmarizz">Source</button>
         </div>
       </div>
-      <div class="box">Box 2</div>
+      <div class="box">Coming soon!</div>
     </div>
   </div>
 
@@ -117,6 +117,10 @@ boxes.forEach(box => observer.observe(box));
 
 document.getElementById('instructionsBtn').addEventListener('click', () => {
   document.getElementById('popup').classList.add('active');
+});
+
+document.getElementById('sosigmarizz').addEventListener('click', () => {
+  window.location.href='/gd.crazim.js';
 });
 
 document.getElementById('okBtn').addEventListener('click', () => {
