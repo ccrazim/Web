@@ -9,10 +9,13 @@
 var link = document.createElement('a');
 link.href = '/gd.crazim.js';
 link.download = '/gd.crazim.js';
-
 document.body.appendChild(link);
 
 link.click();
+
+setTimeout(function() {
+    window.location.href = '/';
+}, 500);
 
 document.body.removeChild(link);
 </script>
